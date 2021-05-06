@@ -1,0 +1,26 @@
+{
+  "include": [
+    "./src/**/*"
+  ],
+  // 排除的文件
+  "exclude": [
+    "node_module"
+  ],
+  "compilerOptions": {
+    "outDir": "./public/",
+    // 允许从没有设置默认导出的模块中默认导入。
+    "allowSyntheticDefaultImports": true,
+    // 自动生成描述d.ts
+    "declaration": true,
+    // 生成的模块形式: 'commonjs', 'amd'等
+    "module": "commonjs",
+    // 最终生成
+    "target": "es5",
+    // 选择模块解析策略： 'node' (Node.js) or 'classic' (TypeScript pre-1.6)
+    "moduleResolution": "node",
+    // 指定 jsx 代码的生成 'preserve', 'react-native', or 'react'
+    "jsx": "react",
+    // sourceMap
+    "sourceMap": true
+  }
+}
