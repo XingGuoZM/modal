@@ -17,14 +17,17 @@ module.exports = {
         options: { presets: ["@babel/env"] }
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        test: /\.(css|less)$/,
+        use: ["style-loader", "css-loader", 'less-loader'],
+        options: {
+          modules: true,
+        }
       },
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
-      },
+      }
     ]
   },
   resolve: {
