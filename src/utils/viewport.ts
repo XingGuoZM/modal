@@ -75,11 +75,6 @@ const viewport = () => {
     const width = docEl.clientWidth || docEl.getBoundingClientRect().width;
     const rem = 100 * (width / 750);
     docEl.style.fontSize = `${rem}px`;
-    // @ts-ignore
-    if (window.__xsandStore__) {
-      // @ts-ignore
-      window.__xsandStore__.globalRem = width / 750;
-    }
   }
   // resize在safari中，收缩屏幕的时候也会触发
   const resizeEvt =
