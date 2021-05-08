@@ -17,11 +17,16 @@ module.exports = {
         options: { presets: ["@babel/env"] }
       },
       {
-        test: /\.(css|less)$/,
-        use: ["style-loader", "css-loader", 'less-loader'],
+        test: /\.css$/i,
+        loader: "css-loader",
         options: {
+          // 使用 `local` 同使用 `modules: true` 的效果是一样的
           modules: true,
         }
+      },
+      {
+        test: /\.(css|less)$/,
+        use: ["style-loader", "css-loader", 'less-loader'],
       },
       {
         test: /\.tsx?$/,
