@@ -1,0 +1,240 @@
+.rModalContainer {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.rContentModal {
+    align-items: center;
+  }
+
+  &.rContentPopup {
+    align-items: flex-end;
+  }
+
+  &.rContentPopdown {
+    align-items: flex-start;
+  }
+
+  &.rContentPopleft {
+    justify-content: flex-start;
+  }
+
+  &.rContentPopright {
+    justify-content: flex-end;
+  }
+
+  .rMask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    &.open {
+      animation: rMaskShow 300ms ease forwards;
+    }
+    &.close {
+      animation: rMaskHide 300ms ease forwards;
+    }
+  }
+
+  .rContent {
+    position: relative;
+    z-index: 2;
+    &.open {
+      animation: rBounceIn 400ms ease forwards;
+    }
+    &.close {
+      animation: rBounceOut 400ms ease forwards;
+    }
+  }
+
+  .rContent.rContentModal {
+    &.open {
+      animation: rBounceIn 400ms ease forwards;
+    }
+    &.close {
+      animation: rBounceOut 400ms ease forwards;
+    }
+  }
+
+  .rContent.rContentPopup {
+    height: auto;
+    width: 100%;
+    &.open {
+      animation: rFadeInUp 400ms ease forwards;
+    }
+    &.close {
+      animation: rFadeOutDown 400ms ease forwards;
+    }
+  }
+
+  .rContent.rContentPopdown {
+    height: auto;
+    width: 100%;
+    &.open {
+      animation: rFadeInUpPopdown 400ms ease forwards;
+    }
+    &.close {
+      animation: rFadeOutDownPopdown 400ms ease forwards;
+    }
+  }
+
+  .rContent.rContentPopleft {
+    height: 100%;
+    width: auto;
+    &.open {
+      animation: rFadeInUpPopleft 400ms ease forwards;
+    }
+    &.close {
+      animation: rFadeOutDownPopleft 400ms ease forwards;
+    }
+  }
+
+  .rContent.rContentPopright {
+    height: 100%;
+    width: auto;
+    &.open {
+      animation: rFadeInUpPopright 400ms ease forwards;
+    }
+    &.close {
+      animation: rFadeOutDownPopright 400ms ease forwards;
+    }
+  }
+}
+
+@keyframes rBounceIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.001);
+    opacity: 1;
+  }
+}
+
+@keyframes rBounceOut {
+  0% {
+    transform: scale(1.001);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes rMaskShow {
+  0% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rMaskHide {
+  0% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+// popup
+@keyframes rFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes rFadeOutDown {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+// popdown
+@keyframes rFadeInUpPopdown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes rFadeOutDownPopdown {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+// popleft
+@keyframes rFadeInUpPopleft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes rFadeOutDownPopleft {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+// popright
+@keyframes rFadeInUpPopright {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes rFadeOutDownPopright {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+}
