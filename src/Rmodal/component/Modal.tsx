@@ -100,7 +100,6 @@ class Modal extends React.Component<ModalProps, ModalState> {
   render() {
     const { visible } = this.state;
     const { children, className = '', baseClassName = '' } = this.props;
-    console.log(visible)
     return (
       <div className={`rModalContainer ${className} ${baseClassName}`}>
         <div
