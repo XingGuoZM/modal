@@ -13,21 +13,15 @@ const showModalB = async () => {
     },
   });
 };
-
-type ModalProps = {
-  closeModal: () => void;
+export interface Props {
   showModal: () => void;
+  closeModal: () => void;
 }
-class A extends React.Component<ModalProps> {
-  constructor(props) {
-    super(props);
-  }
-  componentDidMount() {
-    this.props.showModal();
-  }
-  render() {
-    return <div className={styles.wrap} onClick={showModalB}>点击蒙层关闭</div>;
-  }
+function A({ showModal, closeModal }: Props) {
+  React.useEffect(() => {
+    showModal();
+  }, []);
+  return <div className={styles.wrap} onClick={showModalB}>点击蒙层关闭</div>
 }
 
 export default A;
