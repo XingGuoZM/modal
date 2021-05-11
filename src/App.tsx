@@ -22,4 +22,4 @@ const showModal = async () => {
     showMethod: 'coexist'
   });
 };
-export const App = (props: AppProps) => <div onClick={showModal}>React+ts弹窗模型 {props.name}</div>;
+export const App = (props: AppProps) => <div onClick={showModal}>{props.name}</div>;
