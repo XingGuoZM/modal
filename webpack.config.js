@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: './src/index.tsx',
+  mode: 'development',
   devServer: {
     contentBase: path.join(__dirname, '/public'),
     compress: true,
