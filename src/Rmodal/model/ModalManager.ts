@@ -29,7 +29,7 @@ class ModalManager {
   /**
    * 注册组件
    */
-  registerComp = (compMap = {}) => {
+  register = (compMap = {}) => {
     this.contentCompMap = {
       ...this.contentCompMap,
       ...compMap,
