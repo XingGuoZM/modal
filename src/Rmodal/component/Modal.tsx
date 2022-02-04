@@ -109,11 +109,7 @@ class Modal extends React.Component<ModalProps, ModalState> {
         />
         <div
           onAnimationEnd={this.animate}
-          className={
-            visible
-              ? `rContent ${baseClassName} ${className} open`
-              : `rContent ${baseClassName} ${className} close`
-          }
+          className={`rContent ${baseClassName} ${className} ${visible?'open':'close'}`}
         >
           {children}
         </div>
