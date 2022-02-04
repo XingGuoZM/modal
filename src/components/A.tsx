@@ -1,23 +1,21 @@
 import * as React from "react";
-import styles from './A.module.less';
 import { getRmodal } from '../Rmodal';
+import { ModalPropsOptions } from '../config'
+import styles from './A.module.less';
 
 const modal = getRmodal();
-const showModalB = async () => {
-  await modal.show({
-    key: 'b',
-    showMethod: 'coexist',
-    modalProps: {
-      maskClosable: true,
-      className: 'modalB',
-    },
-  });
-};
-export interface Props {
-  showModal: () => void;
-  closeModal: () => void;
-}
-function A({ showModal, closeModal }: Props) {
+
+function A({ showModal, closeModal }: ModalPropsOptions) {
+  const showModalB = React.useCallback(async () => {
+    await modal.show({
+      key: 'b',
+      showMethod: 'coexist',
+      modalProps: {
+        maskClosable: true,
+        className: 'modalB',
+      },
+    });
+  },[]);
   React.useEffect(() => {
     showModal();
   }, []);

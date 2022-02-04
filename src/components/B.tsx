@@ -1,11 +1,8 @@
 import * as React from "react";
+import { ModalPropsOptions } from '../config';
 import styles from './B.module.less';
 
-export interface Props {
-  showModal: () => void;
-  closeModal: () => void;
-}
-function B({ showModal, closeModal }: Props) {
+function B({ showModal, closeModal }: ModalPropsOptions) {
   React.useEffect(() => {
     showModal();
   }, []);
